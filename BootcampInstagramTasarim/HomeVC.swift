@@ -32,6 +32,10 @@ class HomeVC: UIViewController {
         storysList.append(story5)
         storysList.append(story4)
         storysList.append(story5)
+        storysList.append(story4)
+        storysList.append(story5)
+        storysList.append(story4)
+        storysList.append(story5)
         
         
         let post1 = Posts(id: 1, userImage: "userPost1", userName: "joshua_I", postLocation: "Tokyo, Japan", postImage: "post1", postLikes: "Liked by craig_love and 44,686 others", postComment: "The game in Japan Was amazing and Iwant to share some photos", postLikesImage: "pf5", postImageShape: true)
@@ -48,7 +52,8 @@ class HomeVC: UIViewController {
         let tasarim = UICollectionViewFlowLayout()
         
         tasarim.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        
+        tasarim.scrollDirection = .horizontal
+
         storyCollectionView.collectionViewLayout = tasarim
     }
 
@@ -83,10 +88,14 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource{
         let cell = postTableView.dequeueReusableCell(withIdentifier: "toPostCell", for: indexPath) as! PostTableViewCell
         
         let post = postsList[indexPath.row]
+        cell.imagePostUser.image = UIImage(named: post.userImage)
         cell.imageLikesUserPhoto.image = UIImage(named: post.postLikesImage)
         cell.imagePost.image = UIImage(named: post.postImage)
         cell.labelUserName.text = post.userName
         cell.labelPostLocation.text = post.postLocation
+        cell.labelLikes.text = post.postLikes
+        cell.labelPostUserName.text = post.userName
+        cell.labelUserComment.text = post.postComment
         return cell
     }
     
