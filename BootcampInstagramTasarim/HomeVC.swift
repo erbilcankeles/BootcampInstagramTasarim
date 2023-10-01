@@ -82,7 +82,11 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = postTableView.dequeueReusableCell(withIdentifier: "toPostCell", for: indexPath) as! PostTableViewCell
         
-        
+        let post = postsList[indexPath.row]
+        cell.imageLikesUserPhoto.image = UIImage(named: post.postLikesImage)
+        cell.imagePost.image = UIImage(named: post.postImage)
+        cell.labelUserName.text = post.userName
+        cell.labelPostLocation.text = post.postLocation
         return cell
     }
     
