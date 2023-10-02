@@ -38,8 +38,8 @@ class HomeVC: UIViewController {
         storysList.append(story5)
         
         
-        let post1 = Posts(id: 1, userImage: "userPost1", userName: "joshua_I", postLocation: "Tokyo, Japan", postImage: "post1", postLikes: "Liked by craig_love and 44,686 others", postComment: "The game in Japan Was amazing and Iwant to share some photos", postLikesImage: "pf5", postImageShape: true)
-        let post2 = Posts(id: 2, userImage: "can", userName: "e.cankeles", postLocation: "Springfield", postImage: "post2", postLikes: "Liked by porscheclub and 686 others", postComment: "Our scenery and boat", postLikesImage: "pf4", postImageShape: false)
+        let post1 = Posts(id: 1, userImage: "userPost1", userName: "joshua_I", postLocation: "Tokyo, Japan", postImage: "post1", postLikes: "Liked by craig_love and 44,686 others", postComment: "The game in Japan Was amazing and Iwant to share some photos", postLikesImage: "userPost2", postImageShape: true)
+        let post2 = Posts(id: 2, userImage: "userPost2", userName: "e.cankeles", postLocation: "Springfield", postImage: "post2", postLikes: "Liked by porscheclub and 686 others", postComment: "Our scenery and boat", postLikesImage: "pf4", postImageShape: false)
         
         postsList.append(post1)
         postsList.append(post2)
@@ -50,13 +50,11 @@ class HomeVC: UIViewController {
         postTableView.dataSource = self
         
         let tasarim = UICollectionViewFlowLayout()
-        
-        tasarim.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        tasarim.sectionInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         tasarim.scrollDirection = .horizontal
-
+        tasarim.itemSize = CGSize(width: 72, height: 100)
         storyCollectionView.collectionViewLayout = tasarim
     }
-
 
 }
 
@@ -76,7 +74,10 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource{
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            // Her bir hücrenin boyutunu burada ayarlayın
+            return CGSize(width: 92, height: 104) // Örnek bir boyut
+        }
 }
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource{
