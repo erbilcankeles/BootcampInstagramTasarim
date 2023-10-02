@@ -18,11 +18,11 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let story1 = Storys(id: 1, userName: "Your Story", image: "pf1", live: false)
-        let story2 = Storys(id: 2, userName: "Erbil Can", image: "pf2", live: true)
-        let story3 = Storys(id: 3, userName: "Keleş", image: "pf3", live: false)
-        let story4 = Storys(id: 4, userName: "Porsche", image: "pf4", live: false)
-        let story5 = Storys(id: 5, userName: "Turbo S", image: "pf5", live: false)
+        let story1 = Storys(id: 1, userName: "Your Story", image: "pf1", live: true)
+        let story2 = Storys(id: 2, userName: "Erbil Can", image: "pf2", live: false)
+        let story3 = Storys(id: 3, userName: "Keleş", image: "pf3", live: true)
+        let story4 = Storys(id: 4, userName: "Porsche", image: "pf4", live: true)
+        let story5 = Storys(id: 5, userName: "Turbo S", image: "pf5", live: true)
         storysList.append(story1)
         storysList.append(story2)
         storysList.append(story3)
@@ -38,8 +38,8 @@ class HomeVC: UIViewController {
         storysList.append(story5)
         
         
-        let post1 = Posts(id: 1, userImage: "userPost1", userName: "joshua_I", postLocation: "Tokyo, Japan", postImage: "post1", postLikes: "Liked by craig_love and 44,686 others", postComment: "The game in Japan Was amazing and Iwant to share some photos", postLikesImage: "userPost2", postImageShape: true)
-        let post2 = Posts(id: 2, userImage: "userPost2", userName: "e.cankeles", postLocation: "Springfield", postImage: "post2", postLikes: "Liked by porscheclub and 686 others", postComment: "Our scenery and boat", postLikesImage: "pf4", postImageShape: false)
+        let post1 = Posts(id: 1, userImage: "userPost1", userName: "joshua_I", postLocation: "Tokyo, Japan", postImage: "post1", postLikes: "Liked by craig_love and 44,686 others", postComment: "The game in Japan Was amazing and Iwant to share some photos", postLikesImage: "userPost2", postImageShape: true,postCommentCount: "2 Yorumun tümünü gör",postofDate: "26 dakika önce")
+        let post2 = Posts(id: 2, userImage: "userPost2", userName: "e.cankeles", postLocation: "Springfield", postImage: "post2", postLikes: "Liked by porscheclub and 686 others", postComment: "Our scenery and boat", postLikesImage: "pf4", postImageShape: false,postCommentCount: "5 Yorumun tümünü gör",postofDate: "1 gün önce")
         
         postsList.append(post1)
         postsList.append(post2)
@@ -97,6 +97,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource{
         cell.labelLikes.text = post.postLikes
         cell.labelPostUserName.text = post.userName
         cell.labelUserComment.text = post.postComment
+        cell.labelDateofPost.text = post.postCommentCount
+        cell.labelCommentCount.text = post.postofDate
         return cell
     }
     

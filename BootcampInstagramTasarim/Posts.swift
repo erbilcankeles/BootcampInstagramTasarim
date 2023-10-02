@@ -17,8 +17,10 @@ class Posts{
     var postComment:String
     var postLikesImage:String
     var postImageShape:Bool
+    var postCommentCount:String
+    var postofDate:String
     
-    init(id: Int, userImage: String, userName: String, postLocation: String, postImage: String, postLikes: String, postComment: String, postLikesImage: String, postImageShape: Bool) {
+    init(id: Int, userImage: String, userName: String, postLocation: String, postImage: String, postLikes: String, postComment: String, postLikesImage: String, postImageShape: Bool, postCommentCount: String, postofDate: String) {
         self.id = id
         self.userImage = userImage
         self.userName = userName
@@ -28,5 +30,7 @@ class Posts{
         self.postComment = postComment
         self.postLikesImage = postLikesImage
         self.postImageShape = postImageShape
+        self.postCommentCount = postCommentCount
+        self.postofDate = postofDate
     }
 }
